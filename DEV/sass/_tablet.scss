@@ -1,0 +1,33 @@
+
+
+@media only screen and (min-width: 500px) {
+    /* Style adjustments for viewports that meet the condition */
+
+  header h1 {
+
+  }
+
+  main {
+    padding: 1rem;
+    margin-top: 3rem;
+  }
+
+  .receipt_wrapper {
+    width: 35%;
+    float: left;
+    margin-right: 1rem;
+  }
+
+  .category_wrapper {
+    width: 60%;
+    float: left;
+  }
+  
+  .form_module {
+    width: 100%;
+  }
+
+  .category_module {
+    width: 100%;
+  }  
+}

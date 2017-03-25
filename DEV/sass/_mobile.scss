@@ -1,0 +1,205 @@
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* Border box */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Inconsolata', monospace;
+  font-size: 14px;
+}
+
+header {
+  background-color: #111;
+  color: #fff;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .2);
+  width: 100%;
+  position: fixed;
+  top: 0%;
+}
+
+
+header h1 {
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  display: inline-block;
+  margin: .5rem 0;
+}
+
+header a:link, header a:visited  {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  float: right;
+  padding: .5rem 1rem;
+  transition: .15s ease all;
+}
+
+header a:focus, header a:active, header a:hover {
+  color: #edf702;
+  transition: .15s ease all;
+}
+
+aside.help_info {
+  color: #888;
+  width: 80%;
+  margin: 4rem auto 0 auto;
+  display: none;
+}
+
+main {
+  margin: 2rem 0 3rem 0;
+}
+
+
+.form_module {
+  padding: 0rem;
+  margin-bottom: 2rem;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, .3);
+}
+
+.category_header {
+  background-color: #111;
+  color: #fff;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, .2);
+  padding: 1rem 1rem;
+  overflow: hidden;
+}
+
+input.tax_toggle {
+
+}
+
+.category_inputs {
+  padding: 1rem;
+
+}
+
+.category_inputs label {
+  display: block;
+}
+
+.category_inputs input {
+  width: 100%;
+  padding: .75rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin: 0;
+  display: inline-block;
+}
+
+.category_header a:link, .category_header a:visited {
+  color: #fff;
+  transition: .15s ease all;
+}
+
+.category_header a:hover, .category_header a:focus, .category_header a:active {
+  color: #edf702;
+  transition: .15s ease all;
+}
+
+
+.category_header i {
+  text-align: right;
+  font-size: 1.2rem;
+  line-height: 1.9rem;
+  float: right;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0 0 1rem 0;
+  display: inline-block;
+}
+
+p.tax_check {
+  
+  text-align: right;
+  color: #888;
+  padding-right: 1rem;
+  margin: 1rem 0 0 0;
+}
+.output_field {
+  background-color: #edf702;
+  display: block;
+  padding: 1rem;
+  box-shadow: inset 0px 1px 2px 1px #848383;
+}
+
+.output_field p {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.output_field span {
+  color: #888;
+}
+
+table {
+  width: 100%;
+  margin: .5rem 0rem 1rem 0rem;
+}
+
+td {
+  padding: 0 1rem;
+  border-bottom: 1px solid #888;
+}
+td input {
+  padding: 1rem;
+  margin: 0; 
+  width: 100%;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.category_module {
+  padding-bottom: 1rem;
+}
+.category_module .output_field {
+  margin: 0 1rem;
+}
+
+.category_module h3 {
+  padding-left: 1rem;
+}
+
+.add_btn_mobile {
+  background-color: #111;
+  color: #fff;
+  position: fixed;
+
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: .5rem;
+  cursor: pointer;
+  transition: .15s ease all;
+}
+
+.add_btn_mobile:hover, .add_btn_mobile:active {
+  background-color: #edf702;
+  color: #111;
+  transition: .15s ease all;
+}
+
+.add_btn_mobile:after {
+  content: "+ Add Category";
+
+}

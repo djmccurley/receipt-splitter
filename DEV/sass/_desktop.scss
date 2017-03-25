@@ -1,0 +1,30 @@
+
+@media only screen and (min-width: 700px) {
+  .receipt_wrapper {
+    width: 30%;
+  }
+
+  .category_wrapper {
+    width: 66%;
+  }
+
+  .category_module {
+    width: 45%;
+    float: left;
+    margin-right: 1rem;
+  }
+}
+
+@media only screen and (min-width: 985px) {
+  .receipt_wrapper {
+    width: 22%;
+  }
+
+  .category_wrapper {
+    width: 72%;
+  }
+
+  .category_module {
+    width: 31%;
+  }
+}
