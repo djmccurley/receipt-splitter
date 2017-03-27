@@ -1,4 +1,11 @@
+var receiptSubtotal = 0;
+var categorySubtotal = 0;
 $(document).ready(function() {
+	var numberOfCategories = document.getElementsByClassName("category_inputs").length;
+	var allCategories = [];
+	
+
+	//UI functions
 	//show/hide help info
 	$('.help_btn').click(function() {
 		$('.help_info').slideToggle();
@@ -16,4 +23,18 @@ $(document).ready(function() {
 			console.log('There must be at least 1 category');
 		}
 	});
+
+	//Math functions
+	
+	for (i=1; i<=numberOfCategories; i++) {
+		console.log(numberOfCategories);
+		categorySubtotal = 0;
+		$('.category_module:eq(0)').children().each(function(i) {
+			console.log('hello');
+			categorySubtotal += $('this').val();
+			console.log(categorySubtotal);
+		});
+		
+	}
+
 });	
