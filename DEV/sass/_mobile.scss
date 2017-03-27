@@ -79,16 +79,16 @@ input.tax_toggle {
 
 }
 
-.category_inputs {
+.receipt_inputs {
   padding: 1rem;
 
-}
+} 
 
-.category_inputs label {
+.receipt_inputs label {
   display: block;
 }
 
-.category_inputs input {
+.receipt_inputs input {
   width: 100%;
   padding: .75rem;
   font-size: 1.2rem;
@@ -149,21 +149,18 @@ p.tax_check {
   color: #888;
 }
 
-table {
+.category_inputs {
   width: 100%;
   margin: .5rem 0rem 1rem 0rem;
 }
 
-td {
-  padding: 0 1rem;
-  border-bottom: 1px solid #888;
-}
-td input {
-  padding: 1rem;
+.category_inputs input {
+  padding: 1rem 1rem 1rem 2rem;
   margin: 0; 
   width: 100%;
   border: none;
   font-size: 1.2rem;
+  border-bottom: 1px solid #888;
 }
 
 .category_module {
