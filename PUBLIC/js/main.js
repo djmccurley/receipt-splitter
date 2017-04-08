@@ -22,8 +22,29 @@ $(document).ready(function() {
 		categoryTotal = categoryTotal.toFixed(2);
 		$(this).parent().siblings(".output_field").html("<p>" + categoryTotal + "</p>");
 		$(this).siblings(".output_field").find("#receipt_total").text(categoryTotal);
+		combineSubtotals();
 	}
 
+	function combineSubtotals() {
+		var allCategories = $(".category_module").find(".output_field").children();
+		console.log(allCategories);
+		var allSubtotals = 0;
+		//iterates through array, adds values to categoryTotal
+		for (i=0; i<allCategories.length; i++) {
+			currentSubtotal = parseFloat(allCategories[i].innerText);
+			console.log(currentSubtotal);
+			//checks for NaN, as NaN doesn't equal itself in js
+			if (currentSubtotal !== currentSubtotal) {
+				console.log('Subtotal' + (i+1) + "is NaN");
+			} else {
+					allSubtotals += currentSubtotal;
+				}
+		}
+		//console.log(categoryTotal);
+		//cuts to 2 decimal places
+		allSubtotals = allSubtotals.toFixed(2);
+		$(".receipt_inputs").find("#subtotal").text(allSubtotals);
+	}
 
 	//---UI functions---
 	//show/hide help info
@@ -42,6 +63,7 @@ $(document).ready(function() {
 		else {
 			console.log('There must be at least 1 category');
 		}
+		combineSubtotals();
 	});
 
 });	
