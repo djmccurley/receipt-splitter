@@ -1,11 +1,31 @@
-var receiptSubtotal = 0;
-var categorySubtotal = 0;
 $(document).ready(function() {
-	var numberOfCategories = document.getElementsByClassName("category_inputs").length;
-	var allCategories = [];
-	
+	//must use keydown to prevent error when tabbing out of last input in a category
+	$("input").keydown(sumCategory);
 
-	//UI functions
+	//---Math functions---
+	function sumCategory() {
+		//adds all inputs in category to array
+		var categoryInputs = $(this).parent().children();
+		var categoryTotal = 0;
+		//iterates through array, adds values to categoryTotal
+		for (i=0; i<categoryInputs.length; i++) {
+			currentInputValue = parseFloat(categoryInputs[i].value);
+			//checks for NaN, as NaN doesn't equal itself in js
+			if (currentInputValue !== currentInputValue) {
+				console.log('Input' + (i+1) + "is NaN");
+			} else {
+					categoryTotal += currentInputValue;
+				}
+		}
+		//console.log(categoryTotal);
+		//cuts to 2 decimal places
+		categoryTotal = categoryTotal.toFixed(2);
+		$(this).parent().siblings(".output_field").html("<p>" + categoryTotal + "</p>");
+		$(this).siblings(".output_field").find("#receipt_total").text(categoryTotal);
+	}
+
+
+	//---UI functions---
 	//show/hide help info
 	$('.help_btn').click(function() {
 		$('.help_info').slideToggle();
@@ -23,18 +43,5 @@ $(document).ready(function() {
 			console.log('There must be at least 1 category');
 		}
 	});
-
-	//Math functions
-	
-	for (i=1; i<=numberOfCategories; i++) {
-		console.log(numberOfCategories);
-		categorySubtotal = 0;
-		$('.category_module:eq(0)').children().each(function(i) {
-			console.log('hello');
-			categorySubtotal += $('this').val();
-			console.log(categorySubtotal);
-		});
-		
-	}
 
 });	

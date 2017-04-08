@@ -544,7 +544,7 @@ p.tax_check {
   font-size: 1.2rem;
   text-align: right; }
 
-.output_field span {
+.output_field #subtotal {
   color: #888; }
 
 .category_inputs {

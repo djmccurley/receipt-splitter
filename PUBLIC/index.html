@@ -7,8 +7,8 @@
         <!-- <link rel="stylesheet" href="css/normalize.css"> -->
         <!-- <link rel="stylesheet" href="ccc/form_reset.css"> -->
         <link rel="stylesheet" href="css/css.css">
-        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-        <script src="https://use.fontawesome.com/a26c54cc82.js"></script>
+        <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> -->
+        <!-- <script src="https://use.fontawesome.com/a26c54cc82.js"></script> -->
     </head>
     <body>
         <header class="clearfix">
@@ -32,14 +32,14 @@
                 <h2>Receipt Info</h2>
               </div>
               <div class="receipt_inputs">
-                <label>Total</label>
-                <input type="text" name="total" value="$31.79" placeholder="$0.00">
-                <label>Tax</label>
-                <input type="text" name="tax" value="$2.23" placeholder="$0.00">
+                <label for="total">Total</label>
+                <input type="text" name="total" value="" placeholder="0.00">
+                <label for ="tax">Tax</label>
+                <input type="text" name="tax" value="" placeholder="0.00">
 
                 <h3>Amount Entered:</h3>
                 <div class="output_field">
-                  <p><span class="subtotal">$26.26</span> / $31.79</p>           
+                  <p><span id="subtotal">0.00</span> / <span id="receipt_total">0.00</span></p>           
                 </div> 
               </div>
              </div>
@@ -53,17 +53,17 @@
               <!-- put slider in here -->
             </div>
             <div class="category_inputs">
-              <input type="text" value="$1.21" placeholder="$0.00">
-              <input type="text" value="$5.90" placeholder="$0.00">
-              <input type="text" value="$6.10" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
             </div>
             <h3>Category Total</h3> 
 
 
-            <div class="output_field"><p>$13.21</p></div>   
+            <div class="output_field"></div>   
             <p class="tax_check">Include Tax? <input type="checkbox" class="tax_toggle" name="tax" checked></p>        
            </div>
           <div class="form_module category_module">
@@ -73,15 +73,15 @@
               <!-- put slider in here -->
             </div>
             <div class="category_inputs">
-              <input type="text" value="$1.21" placeholder="$0.00">
-              <input type="text" value="$5.90" placeholder="$0.00">
-              <input type="text" value="$6.10" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
             </div>            
             <h3>Category Total</h3>
-            <div class="output_field"><p>$11.05</p></div>
+            <div class="output_field"></div>
             <p class="tax_check">Include Tax? <input type="checkbox" class="tax_toggle" name="tax" checked></p>             
            </div>
           <div class="form_module category_module">
@@ -91,15 +91,15 @@
               <!-- put slider in here -->
             </div>
             <div class="category_inputs">
-              <input type="text" value="$1.21" placeholder="$0.00">
-              <input type="text" value="$5.90" placeholder="$0.00">
-              <input type="text" value="$6.10" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
-              <input type="text" value="" placeholder="$0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
+              <input type="text" value="" placeholder="0.00">
             </div>
             <h3>Category Total</h3>
-            <div class="output_field"><p>$2.00</p></div>
+            <div class="output_field"></div>
             <p class="tax_check">Include Tax? <input type="checkbox" class="tax_toggle" name="tax" checked></p>             
             </div>
           </div> <!-- category wrapper -->  
