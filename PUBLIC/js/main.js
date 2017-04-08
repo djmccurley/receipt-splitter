@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	//must use keydown to prevent error when tabbing out of last input in a category
-	$("input").keydown(sumCategory);
+	$("input[type='text']").keydown(sumCategory);
 
 	//---Math functions---
 	function sumCategory() {
