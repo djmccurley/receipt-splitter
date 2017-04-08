@@ -145,8 +145,18 @@ p.tax_check {
   text-align: right;
 }
 
-.output_field #subtotal {
-  color: #888; 
+/* .output_field #subtotal {
+  color: #888;
+} */
+
+.output_field.balanced {
+  background-color: #58f71f;
+
+}
+
+.output_field.unbalanced {
+  background-color: #f7471f;
+  color: #fff;
 }
 
 .category_inputs {

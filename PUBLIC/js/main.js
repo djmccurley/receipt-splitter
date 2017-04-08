@@ -44,6 +44,18 @@ $(document).ready(function() {
 		//cuts to 2 decimal places
 		allSubtotals = allSubtotals.toFixed(2);
 		$(".receipt_inputs").find("#subtotal").text(allSubtotals);
+		checkBalance();
+	}
+
+	function checkBalance(){
+		var subtotal = $("#subtotal").text();
+		var receiptTotal = $("#receipt_total").text();
+		console.log(subtotal);
+		if (subtotal === receiptTotal) {
+			$(".receipt_inputs").children(".output_field").removeClass("unbalanced").addClass("balanced");
+		} else if (subtotal !== receiptTotal) {
+			$(".receipt_inputs").children(".output_field").removeClass("balanced").addClass("unbalanced");
+		}
 	}
 
 	//---UI functions---
