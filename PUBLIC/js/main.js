@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	//must use keydown to prevent error when tabbing out of last input in a category
-	$("input[type='text']").keydown(sumCategory);
+	//call sumCategory when user leaves input field - better than keydown as won't fire as often
+	$("input[type='number']").blur(sumCategory);
 
 	//---Math functions---
 	function sumCategory() {
@@ -29,7 +29,7 @@ $(document).ready(function() {
 		var allCategories = $(".category_module").find(".output_field").children();
 		console.log(allCategories);
 		var allSubtotals = 0;
-		//iterates through array, adds values to categoryTotal
+		//iterates through array, adds values to allsubtotals
 		for (i=0; i<allCategories.length; i++) {
 			currentSubtotal = parseFloat(allCategories[i].innerText);
 			console.log(currentSubtotal);
@@ -46,6 +46,14 @@ $(document).ready(function() {
 		$(".receipt_inputs").find("#subtotal").text(allSubtotals);
 		checkBalance();
 	}
+
+	// TAX function:
+	// 1) check N of tax inputs checked, divide tax input field by that
+	// 2) tax input box clicked - run checker (1) again, recalculate current category
+	//		> sumCategory(this.sibling(.category_inputs).first-child);
+	//
+	//IF all inputs full, add another (.text('<input type....'))
+
 
 	function checkBalance(){
 		var subtotal = $("#subtotal").text();
