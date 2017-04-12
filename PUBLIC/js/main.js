@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	//call sumCategory when user leaves input field - better than keydown as won't fire as often
+	var currentTaxToAdd = 0;
 	$("input[type='number']").blur(sumCategory);
+	$("input[type='checkbox']").click(calculateTax);
+
 
 	//---Math functions---
 	function sumCategory() {
@@ -54,6 +57,19 @@ $(document).ready(function() {
 	//
 	//IF all inputs full, add another (.text('<input type....'))
 
+	function calculateTax(){
+		//gets current tax input total
+		var currentTaxTotal = $("#tax_field").val();
+		//checks number of categories with tax includied
+		var taxCategoriesCount = $("input[type='checkbox']:checked").length;
+		var inputToSend = $(this).siblings(".category_inputs").children("input:first-child");
+		console.log(taxCategoriesCount + "is the number of categories");
+		console.log(currentTaxTotal);
+		//divides tax total by number of categories
+		currentTaxToAdd = (currentTaxTotal / taxCategoriesCount);
+		console.log(currentTaxToAdd);
+		sumCategory(inputToSend);
+	}
 
 	function checkBalance(){
 		var subtotal = $("#subtotal").text();
