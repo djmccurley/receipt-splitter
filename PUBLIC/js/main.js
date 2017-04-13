@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	//call sumCategory when user leaves input field - better than keydown as won't fire as often
 	$("input[type='number']").blur(updaterLoop);
-	$("input[type='checkbox']").click(calculateTax);
+	$("input[type='checkbox']").click(updaterLoop);
 
 
 	//---Math functions---
@@ -33,6 +33,7 @@ get array of all categories
 		for (i=0; i<allModules.length; i++) {
 			var thisCategory = $(allModules[i]);
 			var categoryInputs = thisCategory.find("input[type='number']");
+			var categoryCheckbox = thisCategory.find("input[type='checkbox']");
 			console.log("there rae" + categoryInputs.length + " inputs in this #" + i);
 			var categoryTotal = 0;
 			for (j=0; j<categoryInputs.length; j++) {
@@ -44,18 +45,23 @@ get array of all categories
 						categoryTotal += currentInputValue;
 					}
 			}
+		if ((categoryCheckbox.is(':checked')) && (currentTaxToAdd)) {
+				categoryTotal += parseFloat(currentTaxToAdd);
+				console.log("added " + currentTaxToAdd + " to total for category " + i);
+			} else {
+				console.log("no tax added to category " + i);
+			}
 			categoryTotal = categoryTotal.toFixed(2);
 			thisCategory.find(".output_field").html("<p>" + categoryTotal + "</p>");
 			thisCategory.find("#receipt_total").text(categoryTotal);
-			/*combineSubtotals();*/
 		}
-
+	/*	- THIS IS BROKEN - combineSubtotals();*/
 	}
 
 
 	function combineSubtotals() {
 		var allCategories = $(".category_module").find(".output_field").children();
-		console.log(allCategories);
+		console.log("this is all categores:" + allCategories);
 		var allSubtotals = 0;
 		//iterates through array, adds values to allsubtotals
 		for (i=0; i<allCategories.length; i++) {
@@ -72,7 +78,7 @@ get array of all categories
 		//cuts to 2 decimal places
 		allSubtotals = allSubtotals.toFixed(2);
 		$(".receipt_inputs").find("#subtotal").text(allSubtotals);
-		checkBalance();
+		// NEED TO FIX STARTING HERE checkBalance();
 	}
 
 	// TAX function:
