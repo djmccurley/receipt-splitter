@@ -1,35 +1,57 @@
 $(document).ready(function() {
 	//call sumCategory when user leaves input field - better than keydown as won't fire as often
-	var currentTaxToAdd = 0;
-	$("input[type='number']").blur(sumCategory);
+	$("input[type='number']").blur(updaterLoop);
 	$("input[type='checkbox']").click(calculateTax);
 
 
 	//---Math functions---
-	function sumCategory() {
-		//adds all inputs in category to array
-		calculateTax();
-		var categoryInputs = $(this).parent().children();
-		var categoryTotal = 0;
-		//iterates through array, adds values to categoryTotal
-		for (i=0; i<categoryInputs.length; i++) {
-			currentInputValue = parseFloat(categoryInputs[i].value);
-			//checks for NaN, as NaN doesn't equal itself in js
-			if (currentInputValue !== currentInputValue) {
-				console.log('Input' + (i+1) + "is NaN");
-			} else {
-					categoryTotal += currentInputValue;
-				}
-		}
-		//console.log(categoryTotal);
-		//cuts to 2 decimal places
-		categoryTotal += currentTaxToAdd;
-		categoryTotal = categoryTotal.toFixed(2);
 
-		$(this).parent().siblings(".output_field").html("<p>" + categoryTotal + "</p>");
-		$(this).siblings(".output_field").find("#receipt_total").text(categoryTotal);
-		combineSubtotals();
+/*	On blur/click:
+
+function
+	check tax total
+	divide by # of boxes checked
+
+get array of all categories
+	loop through arrays:
+		for each one:
+			sum up entries
+			if box is checked
+				add tax total
+			if not, add 0 total
+			output to total
+	after looping through, do subtotal calc
+		output to receipt box*/
+
+	function updaterLoop() {
+		var currentTaxToAdd = calculateTax();
+		console.log("Adding " + currentTaxToAdd + " to each checked category");
+
+		var allModules = $(".form_module");
+		console.log(allModules.length + " Form Modules total");
+
+		for (i=0; i<allModules.length; i++) {
+			var thisCategory = $(allModules[i]);
+			var categoryInputs = thisCategory.find("input[type='number']");
+			console.log("there rae" + categoryInputs.length + " inputs in this #" + i);
+			var categoryTotal = 0;
+			for (j=0; j<categoryInputs.length; j++) {
+				currentInputValue = parseFloat(categoryInputs[j].value);
+				//checks for NaN, as NaN doesn't equal itself in js
+				if (currentInputValue !== currentInputValue) {
+					console.log('Input' + (i+1) + "is NaN");
+				} else {
+						categoryTotal += currentInputValue;
+					}
+			}
+			categoryTotal = categoryTotal.toFixed(2);
+			thisCategory.find(".output_field").html("<p>" + categoryTotal + "</p>");
+			thisCategory.find("#receipt_total").text(categoryTotal);
+			/*combineSubtotals();*/
+		}
+
 	}
+
 
 	function combineSubtotals() {
 		var allCategories = $(".category_module").find(".output_field").children();
@@ -65,12 +87,10 @@ $(document).ready(function() {
 		var currentTaxTotal = $("#tax_field").val();
 		//checks number of categories with tax includied
 		var taxCategoriesCount = $("input[type='checkbox']:checked").length;
-		/*var inputToSend = $(this).siblings(".category_inputs").children("input:first-child");*/
-		console.log(taxCategoriesCount + "is the number of categories");
-		console.log(currentTaxTotal);
-		//divides tax total by number of categories
-		currentTaxToAdd = (currentTaxTotal / taxCategoriesCount);
-		console.log(currentTaxToAdd);
+		console.log(taxCategoriesCount + " is the number of categories with tax");
+		//divides tax total by number of categories, returns two decimal format
+		return (currentTaxTotal / taxCategoriesCount).toFixed(2);
+		
 	}
 
 	function checkBalance(){
