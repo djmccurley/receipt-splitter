@@ -8,6 +8,7 @@ $(document).ready(function() {
 	//---Math functions---
 	function sumCategory() {
 		//adds all inputs in category to array
+		calculateTax();
 		var categoryInputs = $(this).parent().children();
 		var categoryTotal = 0;
 		//iterates through array, adds values to categoryTotal
@@ -22,7 +23,9 @@ $(document).ready(function() {
 		}
 		//console.log(categoryTotal);
 		//cuts to 2 decimal places
+		categoryTotal += currentTaxToAdd;
 		categoryTotal = categoryTotal.toFixed(2);
+
 		$(this).parent().siblings(".output_field").html("<p>" + categoryTotal + "</p>");
 		$(this).siblings(".output_field").find("#receipt_total").text(categoryTotal);
 		combineSubtotals();
@@ -62,13 +65,12 @@ $(document).ready(function() {
 		var currentTaxTotal = $("#tax_field").val();
 		//checks number of categories with tax includied
 		var taxCategoriesCount = $("input[type='checkbox']:checked").length;
-		var inputToSend = $(this).siblings(".category_inputs").children("input:first-child");
+		/*var inputToSend = $(this).siblings(".category_inputs").children("input:first-child");*/
 		console.log(taxCategoriesCount + "is the number of categories");
 		console.log(currentTaxTotal);
 		//divides tax total by number of categories
 		currentTaxToAdd = (currentTaxTotal / taxCategoriesCount);
 		console.log(currentTaxToAdd);
-		sumCategory(inputToSend);
 	}
 
 	function checkBalance(){
