@@ -121,6 +121,7 @@ get array of all categories
 	//add a category (by cloning 1st category module - .clone(true) copies div AND event handlers)
 	$('.add_btn_mobile').click(function(){
 		$('.category_module:eq(0)').clone(true).appendTo('.category_wrapper');
+		updaterLoop();
 	});
 	//delete categories
 	$('.delete_btn').click(function() {
@@ -130,7 +131,7 @@ get array of all categories
 		else {
 			console.log('There must be at least 1 category');
 		}
-		combineSubtotals();
+		updaterLoop();
 	});
 
 });	
