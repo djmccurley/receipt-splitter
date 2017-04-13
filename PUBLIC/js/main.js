@@ -52,10 +52,13 @@ get array of all categories
 				console.log("no tax added to category " + i);
 			}
 			categoryTotal = categoryTotal.toFixed(2);
-			thisCategory.find(".output_field").html("<p>" + categoryTotal + "</p>");
-			thisCategory.find("#receipt_total").text(categoryTotal);
+			if (i === 0) {
+				thisCategory.find("#receipt_total").text(categoryTotal); 
+			} else {
+				thisCategory.find(".output_field").html("<p>" + categoryTotal + "</p>");
+				}
 		}
-	/*	- THIS IS BROKEN - combineSubtotals();*/
+		combineSubtotals();
 	}
 
 
@@ -78,7 +81,7 @@ get array of all categories
 		//cuts to 2 decimal places
 		allSubtotals = allSubtotals.toFixed(2);
 		$(".receipt_inputs").find("#subtotal").text(allSubtotals);
-		// NEED TO FIX STARTING HERE checkBalance();
+		checkBalance();
 	}
 
 	// TAX function:
